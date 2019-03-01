@@ -353,6 +353,9 @@ Response Session::Impl::Patch() {
 Response Session::Impl::Post() {
     auto curl = curl_->handle;
     if (curl) {
+
+      // Bug Fix Issue #304
+
         curl_easy_setopt(curl, CURLOPT_NOBODY, 0L);
         curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "POST");
     }
